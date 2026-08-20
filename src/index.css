@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-dark: #0D131F;
+  --bg-surface: #151D2A;
+  --bg-surface-hover: #1E2738;
+  --bg-elevated: #242F42;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-focus: #3B82F6;
+
+  --emergency-red: #EF4444;
+  --emergency-red-hover: #DC2626;
+  --emergency-red-bg: rgba(239, 68, 68, 0.12);
+
+  --success-green: #10B981;
+  --success-green-hover: #059669;
+  --success-green-bg: rgba(16, 185, 129, 0.12);
+
+  --primary-blue: #3B82F6;
+  --primary-blue-bg: rgba(59, 130, 246, 0.12);
+
+  --warning-amber: #F59E0B;
+  --warning-amber-bg: rgba(245, 158, 11, 0.12);
+
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+/* Clean Surface Cards */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  transition: border-color 0.15s ease;
+}
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.15s ease;
+  min-height: 48px; /* Mobile touch friendly */
+  text-decoration: none;
+}
+
+.btn-emergency {
+  background: var(--emergency-red);
+  color: #ffffff;
+}
+.btn-emergency:hover {
+  background: var(--emergency-red-hover);
+}
+
+.btn-success {
+  background: var(--success-green);
+  color: #ffffff;
+}
+.btn-success:hover {
+  background: var(--success-green-hover);
+}
+
+.btn-primary {
+  background: var(--primary-blue);
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: #2563EB;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Status Pill Badges */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.pill-red {
+  background: var(--emergency-red-bg);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.pill-green {
+  background: var(--success-green-bg);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.pill-amber {
+  background: var(--warning-amber-bg);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.pill-blue {
+  background: var(--primary-blue-bg);
+  color: #60A5FA;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Layout Structure */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 72px; /* Space for fixed bottom navigation bar */
+}
+
+.main-view {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+/* Responsive grid helpers */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 641px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
